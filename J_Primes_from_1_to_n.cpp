@@ -277,7 +277,7 @@ void initsieve(int n)
     memset(sieve, true, sizeof(sieve));
     sieve[0] = false;
     sieve[1] = false;
-    for (int i = 2; i <= n; i++)
+    for (int i = 2; i * i <= n; i++)
         if (sieve[i] == true)
             for (int j = i * i; j <= n; j += i)
                 sieve[j] = false;
@@ -289,7 +289,7 @@ void solve()
     cin >> n;
     for (int i = 0; i <= n; i++)
     {
-        if (sieve[i])
+        if (sieve[i] == true)
             cout << i << sp;
     }
 }
