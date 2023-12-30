@@ -254,17 +254,17 @@ signed main()
     cin.tie(NULL);
     cout.tie(NULL);
     int t = 1;
-    // cin >> t;
+    cin >> t;
     for (int i = 1; i <= t; i++)
     {
-        // eprintf("--- Case #%lld start ---\n", i);
-        // eprintf("Case #%lld: ", i);
-        // solve();
-        // eprintf("--- Case #%lld end ---\n", i);
-        // eprintf("time = %.5lf\n", getCurrentTime());
-        // eprintf("++++++++++++++++++++\n");
-
+        eprintf("--- Case #%lld start ---\n", i);
+        eprintf("Case #%lld: ", i);
         solve();
+        eprintf("--- Case #%lld end ---\n", i);
+        eprintf("time = %.5lf\n", getCurrentTime());
+        eprintf("++++++++++++++++++++\n");
+
+        // solve();
     }
 
     return 0;
@@ -275,13 +275,32 @@ void solve()
 {
     int n;
     cin >> n;
-    for (int i = 1; i <= n; i++)
+    vector<pair<int, int>> v(n);
+    bool special[] = {false, false, false, false};
+    fo(i, n) cin >> v[i].ff >> v[i].ss;
+    fo(i, n)
     {
-        for (int j = 1; j <= i; j++)
+        if (v[i].ff > 0)
         {
-            cout << "*";
+            special[0] = true;
         }
-        if (i != n)
-            pl;
+        if (v[i].ff < 0)
+        {
+            special[1] = true;
+        }
+        if (v[i].ss > 0)
+        {
+            special[2] = true;
+        }
+        if (v[i].ss < 0)
+        {
+            special[3] = true;
+        }
     }
+    if (special[0] && special[1] && special[2] && special[3])
+    {
+        pn;
+    }
+    else
+        py;
 }

@@ -17,16 +17,6 @@ using namespace std;
 using namespace __gnu_pbds;
 template <typename T>
 using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-
-#ifndef ONLINE_JUDGE
-#define eprintf(...)                  \
-    {                                 \
-        fprintf(stderr, __VA_ARGS__); \
-        fflush(stderr);               \
-    }
-#else
-#define eprintf(...) 42
-#endif
 using ll = long long;
 using ld = long double;
 using uint = unsigned int;
@@ -42,8 +32,8 @@ using pll = pair<ll, ll>;
 #define mod MOD
 #define eb emplace_back
 #define pb emplace_back
-#define int long long
-#define vi vector<ll>
+#define vi vector<int>
+#define vll vector<ll>
 #define vb vector<bool>
 #define vvi vector<vector<ll>>
 #define vvb vector<vector<bool>>
@@ -155,7 +145,6 @@ ll fpow(ll x, ll y)
     return res;
 }
 ll inv(ll a, ll p = mod) { return fpow(a, p - 2); }
-// conversions
 ll str_to_num(string s)
 {
     return stoi(s);
@@ -245,43 +234,4 @@ void _print(map<T, V> v)
         cerr << " ";
     }
     cerr << "]";
-}
-void solve();
-signed main()
-{
-    startTime = clock();
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-    int t = 1;
-    // cin >> t;
-    for (int i = 1; i <= t; i++)
-    {
-        // eprintf("--- Case #%lld start ---\n", i);
-        // eprintf("Case #%lld: ", i);
-        // solve();
-        // eprintf("--- Case #%lld end ---\n", i);
-        // eprintf("time = %.5lf\n", getCurrentTime());
-        // eprintf("++++++++++++++++++++\n");
-
-        solve();
-    }
-
-    return 0;
-}
-//-----------------------------End Snippet--------------------------
-
-void solve()
-{
-    int n;
-    cin >> n;
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = 1; j <= i; j++)
-        {
-            cout << "*";
-        }
-        if (i != n)
-            pl;
-    }
 }

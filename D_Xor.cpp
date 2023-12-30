@@ -257,14 +257,14 @@ signed main()
     // cin >> t;
     for (int i = 1; i <= t; i++)
     {
-        // eprintf("--- Case #%lld start ---\n", i);
-        // eprintf("Case #%lld: ", i);
-        // solve();
-        // eprintf("--- Case #%lld end ---\n", i);
-        // eprintf("time = %.5lf\n", getCurrentTime());
-        // eprintf("++++++++++++++++++++\n");
-
+        eprintf("--- Case #%lld start ---\n", i);
+        eprintf("Case #%lld: ", i);
         solve();
+        eprintf("--- Case #%lld end ---\n", i);
+        eprintf("time = %.5lf\n", getCurrentTime());
+        eprintf("++++++++++++++++++++\n");
+
+        // solve();
     }
 
     return 0;
@@ -273,15 +273,33 @@ signed main()
 
 void solve()
 {
-    int n;
-    cin >> n;
-    for (int i = 1; i <= n; i++)
+    int a, b, c;
+    cin >> a >> b >> c;
+    if (c == 1)
     {
-        for (int j = 1; j <= i; j++)
-        {
-            cout << "*";
-        }
-        if (i != n)
-            pl;
+        print(a);
+        return;
+    }
+    else if (c == 2)
+    {
+        print(b);
+        return;
+    }
+    else if (c == 3)
+    {
+        print((a ^ b));
+        return;
+    }
+    if (c % 3 == 1)
+    {
+        print(a);
+    }
+    else if (c % 3 == 2)
+    {
+        print(b);
+    }
+    else if (c % 3 == 0)
+    {
+        print((a ^ b));
     }
 }

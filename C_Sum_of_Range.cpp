@@ -257,14 +257,14 @@ signed main()
     // cin >> t;
     for (int i = 1; i <= t; i++)
     {
-        // eprintf("--- Case #%lld start ---\n", i);
-        // eprintf("Case #%lld: ", i);
-        // solve();
-        // eprintf("--- Case #%lld end ---\n", i);
-        // eprintf("time = %.5lf\n", getCurrentTime());
-        // eprintf("++++++++++++++++++++\n");
-
+        eprintf("--- Case #%lld start ---\n", i);
+        eprintf("Case #%lld: ", i);
         solve();
+        eprintf("--- Case #%lld end ---\n", i);
+        eprintf("time = %.5lf\n", getCurrentTime());
+        eprintf("++++++++++++++++++++\n");
+
+        // solve();
     }
 
     return 0;
@@ -273,15 +273,14 @@ signed main()
 
 void solve()
 {
-    int n;
-    cin >> n;
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = 1; j <= i; j++)
-        {
-            cout << "*";
-        }
-        if (i != n)
-            pl;
-    }
+    int a, b;
+    cin >> a >> b;
+    int g = max(a, b);
+    int s = min(a, b);
+    int oddsum = (((g + 1) * (g + 1)) / 4) - (((s + 1) * (s + 1)) / 4);
+    int evensum = ((g * (g + 2)) / 4) - ((s * (s + 2)) / 4);
+    int sum = oddsum + evensum;
+    print(sum);
+    print(evensum);
+    print(oddsum);
 }

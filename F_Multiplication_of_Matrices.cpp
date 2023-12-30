@@ -257,14 +257,14 @@ signed main()
     // cin >> t;
     for (int i = 1; i <= t; i++)
     {
-        // eprintf("--- Case #%lld start ---\n", i);
-        // eprintf("Case #%lld: ", i);
-        // solve();
-        // eprintf("--- Case #%lld end ---\n", i);
-        // eprintf("time = %.5lf\n", getCurrentTime());
-        // eprintf("++++++++++++++++++++\n");
-
+        eprintf("--- Case #%lld start ---\n", i);
+        eprintf("Case #%lld: ", i);
         solve();
+        eprintf("--- Case #%lld end ---\n", i);
+        eprintf("time = %.5lf\n", getCurrentTime());
+        eprintf("++++++++++++++++++++\n");
+
+        // solve();
     }
 
     return 0;
@@ -273,15 +273,36 @@ signed main()
 
 void solve()
 {
-    int n;
-    cin >> n;
-    for (int i = 1; i <= n; i++)
+    int m, n, p;
+    cin >> m >> n;
+    vector<vi> v(m, vi(n, 0));
+    fo(i, m)
     {
-        for (int j = 1; j <= i; j++)
+        fo(j, n) cin >> v[i][j];
+    }
+
+    cin >> n >> p;
+    vector<vi> v2(n, vi(p, 0));
+    fo(i, n)
+    {
+        fo(j, p) cin >> v2[i][j];
+    }
+
+    vector<vi> ans(m, vi(p, 0));
+    fo(i, m)
+    {
+        fo(j, p)
         {
-            cout << "*";
+            fo(k, n)
+            {
+                ans[i][j] += v[i][k] * v2[k][j];
+            }
         }
-        if (i != n)
-            pl;
+    }
+
+    fo(i, m)
+    {
+        fo(j, p) cout << ans[i][j] << sp;
+        pl;
     }
 }
